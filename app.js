@@ -13,9 +13,18 @@ var connector = new builder.ChatConnector({
 
 server.post('/api/messages', connector.listen()); 
 
-var bot = new builder.UniversalBot(connector, function(session){
-    session.send("You said: %s", session.message.text); 
-})
+var bot = new builder.UniversalBot(connector, [
+    function(session){
+        builder.Prompts.text(session, "hi what day is it?"); 
+    },
+    function(session, results){
+        if(results.response.toLowerCase() == 'wednesday' ) {
+            session.send('it is Wednesday my dudes'); 
+        } else {
+            session.endDialog('It is not Wednesday my dudes'); 
+        }
+    }
+]); 
 
 // var connector = new builder.ConsoleConnector().listen();
 // var bot = new builder.UniversalBot(connector, function(session) {

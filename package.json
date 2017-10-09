@@ -1,0 +1,15 @@
+{
+  "name": "mondaybot",
+  "version": "1.0.0",
+  "description": "This bot has a case of the mondays",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "timmyreilly",
+  "license": "MIT",
+  "dependencies": {
+    "botbuilder": "^3.11.0",
+    "restify": "^6.0.1"
+  }
+}
